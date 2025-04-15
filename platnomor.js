@@ -1,5 +1,4 @@
 let platNomor = ['B 2403 NDR', 'B 1354 WIB', 'B 3678 WIT'];
-
 let tanggalHariIni = 15;
 
 platNomor.forEach(function(plat) {
@@ -9,18 +8,18 @@ platNomor.forEach(function(plat) {
 
     switch (angkaTerakhir) {
         case '0':
+        case '2':
+        case '4':
+        case '6':
+        case '8':
             jenisPlatnomor = 'GENAP';
             break;
-        case '1':
-            jenisPlatnomor = 'GANJIL';
-            break;
         default:
+            jenisPlatnomor = 'GANJIL';
     }
 
-   let jenistanggal = (tanggal % 2 === 0) ? 'GENAP' : 'GANJIL';
+    let jenisTanggal = (tanggalHariIni % 2 === 0) ? 'GENAP' : 'GANJIL';
+    let bolehMelintas = (jenisPlatnomor === jenisTanggal) ? 'BOLEH' : 'TIDAK BOLEH';
 
- 
-    let bolehmelintas = (jenisPlatnomor === jenistanggal) ? 'BOLEH' : 'TIDAK BOLEH';
-
-    console.log(${plat} adalah plat ${jenisPlatnomor} maka ${bolehmelintas} melintas karena hari ini tanggal ${tanggalHariIni});
+    console.log(`${plat} adalah plat ${jenisPlatnomor}, maka ${bolehMelintas} melintas karena hari ini tanggal ${tanggalHariIni}`);
 });
